@@ -1,5 +1,7 @@
 # Q2
-scp /path/to/your/file.zip alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
+scp /Users/daliaalsaihati/Desktop/ncbi_dataset 2.zip
+alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
+### log into ibex
 ssh Alsaihdh@ibex.kaust.sa
 cd /home/Alsaihdh/
 
