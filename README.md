@@ -1,3 +1,8 @@
+# Q2
+scp /path/to/your/file.zip your_ibex_username@ibex.hostname:/home/your_ibex_username/
+ssh your_ibex_username@ibex.hostname
+cd /home/your_ibex_username/
+unzip file.zip
 # Q3 Answer 
 To find the line with the smallest genome size and print the full line:
 
