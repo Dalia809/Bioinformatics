@@ -83,5 +83,5 @@ To find all genome files (FASTA) larger than 3 megabytes
 
 ### output
 ```
-3
+6
 ```
