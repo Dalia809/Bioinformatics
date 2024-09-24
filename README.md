@@ -3,10 +3,11 @@ scp /Users/daliaalsaihati/Desktop/ncbi_dataset 2.zip
 alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
 ### log into ibex
 ssh Alsaihdh@ibex.kaust.sa
+
 cd /home/Alsaihdh/
 
 ### unzip file
-unzip file.zip
+unzip ncbi_dataset 2.zip
 
 # Q3 Answer 
 To find the line with the smallest genome size and print the full line:
