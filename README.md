@@ -55,7 +55,7 @@ tail -n +2 data.tsv | grep -i "c.*c" | wc -l
 To find the number of genomes where the species name contains at least two "c"s, but does not contain the word "coccus," we use the following shell command:
 ### command
 ```
- tail -n +2 ours.tsv | grep -i "c.*c" | grep -iv "coccus" | wc -l
+ tail -n +2 data.tsv | grep -i "c.*c" | grep -iv "coccus" | wc -l
  ```
 
 ### output
