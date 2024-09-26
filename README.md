@@ -1,4 +1,4 @@
-=======
+
 # Q2
 scp /Users/daliaalsaihati/Desktop/ncbi_dataset 2.zip
 alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
@@ -68,7 +68,6 @@ To find the number of genomes where the species name contains at least two "c"s,
 ### command
 ```
  tail -n +2 ours.tsv | grep -i "c.*c" | grep -iv "coccus" | wc -l
- =======
  tail -n +2 data.tsv | grep -i "c.*c" | grep -iv "coccus" | wc -l
  ```
 
@@ -88,6 +87,6 @@ To find all genome files (FASTA) larger than 3 megabytes
 ```
 6
 ```
-=======
+
 3
 ```
