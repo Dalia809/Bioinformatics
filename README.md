@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+# Q2
+scp /Users/daliaalsaihati/Desktop/ncbi_dataset 2.zip
+alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
+### log into ibex
+ssh Alsaihdh@ibex.kaust.sa
+
+cd /home/Alsaihdh/
+
+### unzip file
+unzip ncbi_dataset 2.zip
+
+>>>>>>> 242801eeb22c0082ca425269524681f9d57e59b5
 # Q3 Answer 
 To find the line with the smallest genome size and print the full line:
 
@@ -55,7 +69,11 @@ tail -n +2 data.tsv | grep -i "c.*c" | wc -l
 To find the number of genomes where the species name contains at least two "c"s, but does not contain the word "coccus," we use the following shell command:
 ### command
 ```
+<<<<<<< HEAD
  tail -n +2 ours.tsv | grep -i "c.*c" | grep -iv "coccus" | wc -l
+=======
+ tail -n +2 data.tsv | grep -i "c.*c" | grep -iv "coccus" | wc -l
+>>>>>>> 242801eeb22c0082ca425269524681f9d57e59b5
  ```
 
 ### output
@@ -72,5 +90,10 @@ To find all genome files (FASTA) larger than 3 megabytes
 
 ### output
 ```
+<<<<<<< HEAD
 6
 ```
+=======
+3
+```
+>>>>>>> 242801eeb22c0082ca425269524681f9d57e59b5
