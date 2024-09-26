@@ -1,0 +1,12 @@
+# Ignore specific files
+analysis.ipynb
+ncbi_dataset.zip
+pyvenv.cfg
+
+# Ignore directories
+bin/
+lib64
+lib/
+include/
+ncbi_dataset/
+share/
