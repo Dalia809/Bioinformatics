@@ -35,18 +35,18 @@ def find_all_orfs(sequence):
     
     return orfs
 
-def translate_orfs_to_proteins(orfs):
+def translate_orfs_to_proteins(orfs, min_length):
     proteins = set()
     for orf in orfs:
         protein = str(Seq(orf).translate(to_stop=True))
-        if protein:
-            proteins.add(protein)
+        if len(protein) >= min_length:
+            proteins.add((protein, len(protein)))
     return proteins
 
-def process_file(file_path):
+def process_file(file_path, min_length):
     sequence = read_fasta(file_path)
     orfs = find_all_orfs(sequence)
-    proteins = translate_orfs_to_proteins(orfs)
+    proteins = translate_orfs_to_proteins(orfs, min_length)
     
     file_dir = os.path.dirname(file_path)
     file_name = os.path.basename(file_path)
@@ -55,16 +55,18 @@ def process_file(file_path):
     
     with open(output_file, 'w') as f:
         f.write(f"Proteins for file {file_path}:\n")
-        for protein in proteins:
-            f.write(f"{protein}\n")
+        for protein, length in proteins:
+            f.write(f"{protein} {length}\n")
         f.write("\n")
 
 def main():
-    parser = argparse.ArgumentParser(description="Extract ORFs and translate them into protein strings for multiple files.")
+    parser = argparse.ArgumentParser(description="Extract ORFs, filter by length, and translate them into protein strings.")
     parser.add_argument('input_files', nargs='+', help="Paths to the input FASTA files containing the DNA sequences")
+    parser.add_argument('--min_length', type=int, default=100, help="Minimum length of ORFs to be considered (in codons, default: 100)")
+    
     args = parser.parse_args()
+    
     for file_path in args.input_files:
-        if "GCA" in file_path:  
-            process_file(file_path)
-
+        if "GCA" in file_path:
+            process_file(file_path, args.min_length)
 main()
