@@ -303,3 +303,24 @@ Directory: GCA_000008785.1_prokka_output - CDS count: 1504
 Directory: GCA_000027305.1_prokka_output - CDS count: 1748
 Directory: GCA_000091085.2_prokka_output - CDS count: 1056
 ```
+
+## Q5 Answer
+
+To combine all `.gbk` files from the Prokka output directories and extract unique gene names, follow these steps:
+
+### Command to combine all `.gbk` files into one:
+
+$ find _prokka_output -name ".gbk" -exec cat {} + >> combined_annotations.gbk
+
+### Command to extract unique gene names from the combined `.gbk` file:
+
+$ grep "/gene=" combined_annotations.gbk | cut -d'=' -f2 | tr -d '"' | sort | uniq > unique_gene_names.txt
+
+### Command to display the first five unique gene names:
+
+$ head -n 5 unique_gene_names.txt
+
+### Output:
+aaaT aaeA aaeA_1 aaeA_2 aaeB
+
+
