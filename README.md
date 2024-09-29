@@ -133,9 +133,9 @@ find data/ncbi_dataset/data -name "*.fna" -size +3M | wc -l
 
 ```bash
 #!/bin/bash
-peptide="KVRMFTSELDIMLSVNGPADQIKYFCRHWT"
+peptide="KVRMFTSELDIMLSVNGPADQIKYFCRHWT*"
 
-num_amino_acids=${#peptide}
+num_amino_acids=${#peptide} -1
 echo "Number of amino acids in the peptide: $num_amino_acids"
 
 num_bases=$(( ($num_amino_acids) * 3 )+3) 
