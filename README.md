@@ -309,18 +309,20 @@ Directory: GCA_000091085.2_prokka_output - CDS count: 1056
 
 ### Command to combine all `.gbk` files into one:
 ```
-$ find _prokka_output -name ".gbk" -exec cat {} + >> combined_annotations.gbk
+find _prokka_output -name ".gbk" -exec cat {} + >> combined_annotations.gbk
 ```
 ### Command to extract unique gene names from the combined `.gbk` file:
 ```
-$ grep "/gene=" combined_annotations.gbk | cut -d'=' -f2 | tr -d '"' | sort | uniq > unique_gene_names.txt
+grep "/gene=" combined_annotations.gbk | cut -d'=' -f2 | tr -d '"' | sort | uniq > unique_gene_names.txt
 ```
 ### Command to display the first five unique gene names:
 ```
-$ head -n 5 unique_gene_names.txt
+wc -l unique_gene_names.txt
+head -n 5 unique_gene_names.txt
 ```
 ### Output:
 ```
+5726 unique_gene_names.txt
 aaaT aaeA aaeA_1 aaeA_2 aaeB
 ```
 
