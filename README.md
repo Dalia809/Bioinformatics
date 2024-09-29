@@ -1,4 +1,6 @@
-# Q2
+# Week 3
+***
+## Q2
 scp /Users/daliaalsaihati/Desktop/ncbi_dataset 2.zip
 alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
 ### log into ibex
@@ -9,7 +11,7 @@ cd /home/Alsaihdh/
 ### unzip file
 unzip ncbi_dataset 2.zip
 
-# Q3 Answer 
+## Q3 Answer 
 To find the line with the smallest genome size and print the full line:
 
 ### command
@@ -51,7 +53,7 @@ sort -k2,2n data.tsv | tail -n 1 | awk '{print $(NF-3)}'
 4.033
 ```
 ***
-# Q4 Answer 
+## Q4 Answer 
 
 To find the number of genomes where the species name contains at least two "c"s
 ### command
@@ -75,7 +77,7 @@ To find the number of genomes where the species name contains at least two "c"s,
 5
 ```
 ***
-# Q5 Answer 
+## Q5 Answer 
 To find all genome files (FASTA) larger than 3 megabytes
 ### command
 ```
@@ -86,3 +88,6 @@ To find all genome files (FASTA) larger than 3 megabytes
 ```
 3
 ```
+***
+***
+# Week 4+5
