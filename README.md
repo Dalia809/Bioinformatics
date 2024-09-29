@@ -138,7 +138,7 @@ peptide="KVRMFTSELDIMLSVNGPADQIKYFCRHWT"
 num_amino_acids=${#peptide}
 echo "Number of amino acids in the peptide: $num_amino_acids"
 
-num_bases=$(( ($num_amino_acids) * 3 ))
+num_bases=$(( ($num_amino_acids) * 3 )+3) 
 echo "Number of bases in the ORF: $num_bases"
 ```
 
@@ -146,7 +146,7 @@ echo "Number of bases in the ORF: $num_bases"
 
 ```
 Number of amino acids in the peptide: 30
-Number of bases in the ORF: 90
+Number of bases in the ORF: 93
 ```
 
 ***
