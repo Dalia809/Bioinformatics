@@ -180,6 +180,62 @@ File: ./GCA_000091085.2_genes.gbk - Number of CDS: 1063
 ```
 ***
 ## Q4 Answer 
+
 ### Bash Script
+Similarly, I first used this script to run Prokka on all GCA files:
+```
+#!/bin/bash
+
+for genome_dir in GCA_*; do
+  genome_file=$(find "$genome_dir" -name "*_genomic.fna")
+  
+  if [[ -f "$genome_file" ]]; then
+    prokka_output_dir="${genome_dir}_prokka_output"
+    prokka --outdir "$prokka_output_dir" --prefix "${genome_dir}" "$genome_file"
+    
+    prokka_output_file="$prokka_output_dir/${genome_dir}.txt"
+    
+    if [[ -f "$prokka_output_file" ]]; then
+      cds_count=$(grep -w "CDS" "$prokka_output_file" | awk '{print $2}')
+      echo "Genome: $genome_file - Number of CDS annotated: $cds_count"
+    else
+      echo "Prokka output file not found for $genome_file"
+    fi
+  else
+    echo "No genomic file found in $genome_dir"
+  fi
+done
+```
+Then collected all CDS counts from within the .txt file in the prokka_output folder generated for each GCA file as follows:
+```
+#!/bin/bash
+
+for prokka_dir in *_prokka_output; do
+  txt_file=$(find "$prokka_dir" -name "*.txt")
+  
+  if [[ -f "$txt_file" ]]; then
+    cds_count=$(grep "CDS:" "$txt_file" | awk '{print $2}')
+    echo "Directory: $prokka_dir - CDS count: $cds_count"
+  else
+    echo "No .txt file found in $prokka_dir"
+  fi
+done
+```
 
 ### Output
+```
+Directory: GCA_000006745.1_prokka_output - CDS count: 3589
+Directory: GCA_000006825.1_prokka_output - CDS count: 2028
+Directory: GCA_000006865.1_prokka_output - CDS count: 2383
+Directory: GCA_000007125.1_prokka_output - CDS count: 3150
+Directory: GCA_000008525.1_prokka_output - CDS count: 1577
+Directory: GCA_000008545.1_prokka_output - CDS count: 1861
+Directory: GCA_000008565.1_prokka_output - CDS count: 3245
+Directory: GCA_000008605.1_prokka_output - CDS count: 1001
+Directory: GCA_000008625.1_prokka_output - CDS count: 1771
+Directory: GCA_000008725.1_prokka_output - CDS count: 892
+Directory: GCA_000008745.1_prokka_output - CDS count: 1058
+Directory: GCA_000008785.1_prokka_output - CDS count: 1504
+Directory: GCA_000027305.1_prokka_output - CDS count: 1748
+Directory: GCA_000091085.2_prokka_output - CDS count: 1056
+```
