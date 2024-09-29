@@ -1,5 +1,4 @@
 # Week 3
-***
 ## Q2
 scp /Users/daliaalsaihati/Desktop/ncbi_dataset 2.zip
 alsaihdh@ilogin.ibex.kaust.edu.sa:/home/Alsaihdh/
@@ -88,6 +87,5 @@ To find all genome files (FASTA) larger than 3 megabytes
 ```
 3
 ```
-***
 ***
 # Week 4+5
